@@ -10,13 +10,6 @@ const replace = require("replace-in-file");
 
 module.exports = class extends Generator {
   prompting() {
-    // Have Yeoman greet the user.
-    this.log(
-      yosay(
-        `Welcome to the stunning ${chalk.red("generator-github")} generator!`
-      )
-    );
-
     const prompts = [
       {
         type: "input",
