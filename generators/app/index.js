@@ -53,7 +53,9 @@ module.exports = class extends Generator {
       function(props) {
         // To access props later use this.props.someAnswer;
         this.props = props;
-        yoHelper.rewriteProps(props);
+        yoHelper.rewriteProps(props, {
+          exclude: ["email", "description", "author", "homepage"]
+        });
       }.bind(this)
     );
   }
@@ -75,7 +77,7 @@ module.exports = class extends Generator {
   }
 
   end() {
-    const { project_name, description } = this.props;
+    const { project_name, homepage, author, email, description } = this.props;
     const files = glob.sync(resolve(this.destinationPath(), "{**,.*}"));
 
     replace.sync({
