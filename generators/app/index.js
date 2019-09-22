@@ -21,7 +21,7 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "project_name",
-        message: "Your project_name (eg: like this `react-button` )?",
+        message: "Your project_name (eg: like this `my-project` )?",
         default: yoHelper.discoverRoot
       },
       {
