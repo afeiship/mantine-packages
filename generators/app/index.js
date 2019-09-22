@@ -15,7 +15,7 @@ module.exports = class extends Generator {
         type: "input",
         name: "project_name",
         message: "Your project_name (eg: like this `my-project` )?",
-        default: yoHelper.discoverRoot
+        default: this.determineAppname()
       },
       {
         type: "input",
@@ -32,13 +32,13 @@ module.exports = class extends Generator {
         type: "input",
         name: "author",
         message: "Your author?",
-        default: "afei"
+        default: this.user.git.name()
       },
       {
         type: "input",
         name: "email",
         message: "Your email?",
-        default: "1290657123@qq.com"
+        default: this.user.git.email()
       }
     ];
 
