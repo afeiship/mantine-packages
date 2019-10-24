@@ -8,6 +8,9 @@ const remote = require("yeoman-remote");
 const yoHelper = require("yeoman-generator-helper");
 const replace = require("replace-in-file");
 
+// packages:
+require("next-dasherize");
+
 module.exports = class extends Generator {
   prompting() {
     const prompts = [
@@ -15,7 +18,7 @@ module.exports = class extends Generator {
         type: "input",
         name: "project_name",
         message: "Your project_name (eg: like this `my-project` )?",
-        default: this.determineAppname()
+        default: nx.dasherize(this.determineAppname())
       },
       {
         type: "input",
