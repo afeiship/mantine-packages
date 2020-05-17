@@ -14,6 +14,12 @@ module.exports = class extends Generator {
     const prompts = [
       {
         type: "input",
+        name: "scope",
+        message: "Your project_name scope (eg: `@babel(scope is babel)`)?",
+        default: 'feizheng'
+      },
+      {
+        type: "input",
         name: "project_name",
         message: "Your project_name (eg: like this `my-project` )?",
         default: yoHelper.discoverRoot
@@ -71,7 +77,7 @@ module.exports = class extends Generator {
   }
 
   end() {
-    const { project_name, homepage, author, email, description } = this.props;
+    const { project_name, homepage, author, email, description, scope } = this.props;
     const files = glob.sync(resolve(this.destinationPath(), "{**,.*}"));
 
     replace.sync({
@@ -81,9 +87,10 @@ module.exports = class extends Generator {
         /boilerplate-github-homepage/g,
         /boilerplate-github-author/g,
         /boilerplate-github-email/g,
-        /boilerplate-github/g
+        /boilerplate-github/g,
+        /@scope/g
       ],
-      to: [description, homepage, author, email, project_name]
+      to: [description, homepage, author, email, project_name, `@${scope}`]
     });
   }
 };
