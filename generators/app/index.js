@@ -88,9 +88,9 @@ module.exports = class extends Generator {
         /boilerplate-github-author/g,
         /boilerplate-github-email/g,
         /boilerplate-github/g,
-        /@scope/g
+        /boilerplate-scope/g
       ],
-      to: [description, homepage, author, email, project_name, `@${scope}`]
+      to: [description, homepage, author, email, project_name, scope]
     });
   }
 };
