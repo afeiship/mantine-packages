@@ -8,6 +8,12 @@ const remote = require("yeoman-remote");
 const yoHelper = require("@feizheng/yeoman-generator-helper");
 const replace = require("replace-in-file");
 
+require('@afeiship/next-npm-registries');
+
+const NPM_CHOICES = ['npm', 'github', 'alo7'].map(item => {
+  return { name: item, value: nx.npmRegistries(item) };
+});
+
 module.exports = class extends Generator {
   prompting() {
     // console.log(this.determineAppname());
@@ -17,6 +23,12 @@ module.exports = class extends Generator {
         name: "scope",
         message: "Your project_name scope (eg: `@babel(scope is babel)`)?",
         default: 'feizheng'
+      },
+      {
+        type: 'list',
+        name: 'registry',
+        message: 'Your registry',
+        choices: NPM_CHOICES
       },
       {
         type: "input",
@@ -67,9 +79,10 @@ module.exports = class extends Generator {
       "boilerplate-github",
       function(err, cachePath) {
         // copy files:
-        this.fs.copy(
+        this.fs.copyTpl(
           glob.sync(resolve(cachePath, "{**,.*}")),
-          this.destinationPath()
+          this.destinationPath(),
+          this.props,
         );
         done();
       }.bind(this)
@@ -77,7 +90,7 @@ module.exports = class extends Generator {
   }
 
   end() {
-    const { project_name, homepage, author, email, description, scope } = this.props;
+    const { project_name, homepage, author, email, description } = this.props;
     const files = glob.sync(resolve(this.destinationPath(), "{**,.*}"));
 
     replace.sync({
@@ -88,9 +101,8 @@ module.exports = class extends Generator {
         /boilerplate-github-author/g,
         /boilerplate-github-email/g,
         /boilerplate-github/g,
-        /boilerplate-scope/g
       ],
-      to: [description, homepage, author, email, project_name, scope]
+      to: [description, homepage, author, email, project_name]
     });
   }
 };
