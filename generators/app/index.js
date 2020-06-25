@@ -62,11 +62,11 @@ module.exports = class extends Generator {
     ];
 
     return this.prompt(prompts).then(
-      function(props) {
+      function (props) {
         // To access props later use this.props.someAnswer;
         this.props = props;
         yoHelper.rewriteProps(props, {
-          exclude: ["email", "description", "author", "homepage"]
+          exclude: ["email", "description", "author", "homepage", 'registry']
         });
       }.bind(this)
     );
@@ -77,7 +77,7 @@ module.exports = class extends Generator {
     remote(
       "afeiship",
       "boilerplate-github",
-      function(err, cachePath) {
+      function (err, cachePath) {
         // copy files:
         this.fs.copyTpl(
           glob.sync(resolve(cachePath, "{**,.*}")),
