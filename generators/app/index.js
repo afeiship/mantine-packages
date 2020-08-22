@@ -2,6 +2,7 @@
 const Generator = require("yeoman-generator");
 const glob = require("glob");
 const { resolve } = require("path");
+const { execSync } = require("child_process");
 const remote = require("yeoman-remote");
 const yoHelper = require("@feizheng/yeoman-generator-helper");
 const replace = require("replace-in-file");
