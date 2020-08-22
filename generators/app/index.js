@@ -9,6 +9,8 @@ const replace = require("replace-in-file");
 require('@afeiship/next-npm-registries');
 require("@feizheng/next-git-url");
 
+const res = execSync("git config --get remote.origin.url");
+const remoteUrl = res.toString().trim();
 const gitUrl = new nx.GitUrl(remoteUrl);
 const NPM_CHOICES = ['npm', 'github', 'alo7'].map(item => {
   return { name: item, value: nx.npmRegistries(item) };
