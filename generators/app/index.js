@@ -7,7 +7,9 @@ const yoHelper = require("@feizheng/yeoman-generator-helper");
 const replace = require("replace-in-file");
 
 require('@afeiship/next-npm-registries');
+require("@feizheng/next-git-url");
 
+const gitUrl = new nx.GitUrl(remoteUrl);
 const NPM_CHOICES = ['npm', 'github', 'alo7'].map(item => {
   return { name: item, value: nx.npmRegistries(item) };
 });
@@ -20,12 +22,12 @@ module.exports = class extends Generator {
         type: "input",
         name: "scope",
         message: "Your project_name scope (eg: `@babel(scope is babel)`)?",
-        default: 'feizheng'
+        default: "feizheng"
       },
       {
-        type: 'list',
-        name: 'registry',
-        message: 'Your registry',
+        type: "list",
+        name: "registry",
+        message: "Your registry",
         choices: NPM_CHOICES
       },
       {
@@ -43,7 +45,7 @@ module.exports = class extends Generator {
         type: "input",
         name: "homepage",
         message: "Your homepage?",
-        default: "https://github.com/afeiship"
+        default: gitUrl.url
       },
       {
         type: "input",
