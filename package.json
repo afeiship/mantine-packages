@@ -1,5 +1,5 @@
 {
-  "name": "@feizheng/generator-github",
+  "name": "@jswork/generator-github",
   "version": "1.0.0",
   "description": "Yeoman for an empty github project.",
   "homepage": "https://github.com/afeiship/generator-github",
@@ -13,12 +13,10 @@
   ],
   "main": "generators/index.js",
   "keywords": [
-    "yeoman",
     "generator",
-    "yo",
     "github",
-    "template",
-    "yeoman-generator"
+    "yeoman",
+    "yo"
   ],
   "engines": {
     "npm": ">= 4.0.0"
