@@ -22,13 +22,16 @@
     "npm": ">= 4.0.0"
   },
   "dependencies": {
-    "@afeiship/next-npm-registries": "^1.0.2",
-    "@feizheng/next-git-url": "^1.0.1",
-    "@feizheng/yeoman-generator-helper": "^1.0.10",
-    "replace-in-file": "^6.1.0",
-    "yeoman-generator": "^4.11.0",
-    "yeoman-remote": "^1.0.1"
+    "@jswork/generator-prompts": "^1.1.4",
+    "@jswork/yeoman-generator-helper": "^1.0.4",
+    "yeoman-generator": "^4.11.0"
   },
   "repository": "git@github.com:afeiship/generator-github.git",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.5.1"
+  },
+  "peerDependencies": {
+    "@jswork/dotfiles": "^1.0.0"
+  }
 }
