@@ -8,7 +8,7 @@ describe('generator-github:app', () => {
     return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({ scope: 'jswork' });
   });
 
-  it('creates files', () => {
-    assert.file(['dummyfile.txt']);
+  test('creates files, include prettier/editorconfig', () => {
+    assert.file(['.prettier', '.prettierignore', '.editorconfig', 'README.md']);
   });
 });

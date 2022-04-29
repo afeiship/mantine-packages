@@ -21,6 +21,9 @@
   "engines": {
     "npm": ">= 4.0.0"
   },
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "@jswork/generator-prompts": "^1.1.4",
     "@jswork/yeoman-generator-helper": "^1.0.4",
@@ -29,7 +32,10 @@
   "repository": "git@github.com:afeiship/generator-github.git",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^2.5.1"
+    "jest": "^28.0.2",
+    "prettier": "^2.5.1",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^6.3.0"
   },
   "peerDependencies": {
     "@jswork/dotfiles": "^1.0.0"
