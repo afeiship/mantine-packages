@@ -7,3 +7,8 @@ git clone git@github.com:afeiship/generator-github.git
 cd generator-github
 npm link
 ```
+
+## usage
+```shell
+yo @jswork/github
+```
