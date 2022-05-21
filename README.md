@@ -11,4 +11,5 @@ npm link
 ## usage
 ```shell
 yo @jswork/github
+yo @jswork/github:ci
 ```
