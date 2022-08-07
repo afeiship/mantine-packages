@@ -2,7 +2,7 @@
 const Generator = require('yeoman-generator');
 const globby = require('globby');
 const yoHelper = require('@jswork/yeoman-generator-helper');
-const getp = require('@jswork/generator-prompts').default;
+const getp = require('@jswork/generator-prompts');
 const prompts = getp([
   'scope',
   'registry',
