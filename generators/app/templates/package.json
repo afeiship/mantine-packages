@@ -1,5 +1,5 @@
 {
-  "name": "@<%= scope %>/<%= project_name %>",
+  "name": "<%= project_name %>",
   "version": "1.0.0",
   "description": "<%= description %>",
   "homepage": "<%= homepage %>",
@@ -8,9 +8,5 @@
     "email": "<%= email %>"
   },
   "license": "MIT",
-  "publishConfig": {
-    "access": "<%= registry.access %>",
-    "registry": "<%= registry.publish %>"
-  },
   "generator": "@jswork/generator-github"
 }
