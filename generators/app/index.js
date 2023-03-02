@@ -1,7 +1,6 @@
 'use strict';
 const Generator = require('yeoman-generator');
 const globby = require('globby');
-const yoHelper = require('@jswork/yeoman-generator-helper');
 const getp = require('@jswork/generator-prompts');
 const prompts = getp([
   'project_name',
@@ -14,7 +13,6 @@ const prompts = getp([
 module.exports = class extends Generator {
   async prompting() {
     this.props = await this.prompt(prompts);
-    yoHelper.rewriteProps(this.props);
   }
 
   writing() {

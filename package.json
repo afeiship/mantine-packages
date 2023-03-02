@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@jswork/generator-prompts": "^1.1.8",
-    "@jswork/yeoman-generator": "^1.0.4",
+    "@jswork/yeoman-generator": "^1.0.5",
     "yeoman-generator": "^5.8.0"
   },
   "repository": "git@github.com:afeiship/generator-github.git",
