@@ -1,5 +1,5 @@
 'use strict';
-const Generator = require('yeoman-generator');
+const Generator = require('@jswork/yeoman-generator');
 const globby = require('globby');
 const getp = require('@jswork/generator-prompts');
 const prompts = getp([
