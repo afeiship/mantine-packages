@@ -22,10 +22,6 @@ module.exports = class extends Generator {
       '@jswork/dotfiles:gitignore'
     ]);
 
-    this.fs.copyTpl(
-      globby.sync(this.templatePath('**'), { dot: true }),
-      this.destinationPath(),
-      this.props
-    );
+    this.fs.copyTpl(this.srcFiles, this.destinationPath(), this.props);
   }
 };
