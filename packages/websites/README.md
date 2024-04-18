@@ -1,2 +1,2 @@
-# mantine-packages
+# websites
 > mantine packages.

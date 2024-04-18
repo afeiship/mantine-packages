@@ -1,33 +1,22 @@
 {
-  "name": "@jswork/generator-github",
-  "version": "1.0.0",
-  "description": "Yeoman for an empty github project.",
-  "homepage": "https://github.com/afeiship/generator-github",
-  "author": {
-    "name": "afei",
-    "email": "1290657123@qq.com",
-    "url": "https://github.com/afeiship"
-  },
-  "files": [
-    "generators"
-  ],
-  "main": "generators/index.js",
-  "keywords": [
-    "generator",
-    "github",
-    "yeoman",
-    "yo"
-  ],
-  "engines": {
-    "npm": ">= 4.0.0"
+  "name": "mantine-packages",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
   },
   "scripts": {
-    "test": "jest"
+    "start": "yarn --cwd packages/websites start",
+    "lerna:clean": "lerna clean",
+    "lerna:list": "lerna list",
+    "lerna:bootstrap": "lerna bootstrap",
+    "build": "lerna run build --since master --no-private",
+    "publish": "npm run build && lerna publish --no-private"
   },
-  "dependencies": {
-    "@jswork/generator-prompts": "^1.1.8",
-    "@jswork/yeoman-generator": "^1.0.6"
-  },
-  "repository": "git@github.com:afeiship/generator-github.git",
-  "license": "MIT"
+  "homepage": "https://js.work",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/afeiship/mantine-packages.git"
+  }
 }
