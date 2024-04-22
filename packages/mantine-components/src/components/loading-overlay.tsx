@@ -1,9 +1,5 @@
+import { LoadingOverlay as LoadingOverlayComponent, LoadingOverlayProps } from '@mantine/core';
 import React from 'react';
-import {
-  LoadingOverlay as LoadingOverlayComponent,
-  factory,
-  LoadingOverlayProps
-} from '@mantine/core';
 
 interface LoadingOverlayExtendProps extends LoadingOverlayProps {
   customCentered?: boolean;
@@ -11,12 +7,7 @@ interface LoadingOverlayExtendProps extends LoadingOverlayProps {
 
 function LoadingOverlay(props: LoadingOverlayExtendProps) {
   const { customCentered = false, ...rest } = props;
-  const Ins = factory((_props, ref) => (
-    <LoadingOverlayComponent data-custom-centered={customCentered} ref={ref} {...rest} />
-  ));
-  return <Ins />;
+  return <LoadingOverlayComponent data-custom-centered={customCentered} {...rest} />;
 }
-
-LoadingOverlay.displayName = '@jswork/mantine-components/LoadingOverlay';
 
 export default LoadingOverlay;
