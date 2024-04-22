@@ -1,7 +1,7 @@
 {
-  "name": "@jswork/mantine-packages",
+  "name": "@jswork/mantine-components",
   "version": "1.0.0",
-  "description": "mantine packages.",
+  "description": "mantine components.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
