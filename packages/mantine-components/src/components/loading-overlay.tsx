@@ -1,4 +1,8 @@
-import { LoadingOverlay as LoadingOverlayComponent, LoadingOverlayProps } from '@mantine/core';
+import {
+  LoadingOverlay as LoadingOverlayComponent,
+  LoadingOverlayProps,
+  MantineProvider
+} from '@mantine/core';
 import React from 'react';
 
 interface LoadingOverlayExtendProps extends LoadingOverlayProps {
@@ -7,7 +11,11 @@ interface LoadingOverlayExtendProps extends LoadingOverlayProps {
 
 function LoadingOverlay(props: LoadingOverlayExtendProps) {
   const { customCentered = false, ...rest } = props;
-  return <LoadingOverlayComponent data-custom-centered={customCentered} {...rest} />;
+  return (
+    <MantineProvider>
+      <LoadingOverlayComponent data-custom-centered={customCentered} {...rest} />
+    </MantineProvider>
+  );
 }
 
 export default LoadingOverlay;
