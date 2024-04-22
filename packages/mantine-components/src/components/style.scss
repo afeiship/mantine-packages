@@ -1,0 +1,12 @@
+.mantine-LoadingOverlay-root {
+  --mantine-extend-overlay-padding-top: 37.5%;
+
+  &[data-custom-centered="true"] {
+    align-items: initial;
+    padding-top: var(--mantine-extend-overlay-padding-top);
+
+    .mantine-Loader-root {
+      position: fixed;
+    }
+  }
+}
