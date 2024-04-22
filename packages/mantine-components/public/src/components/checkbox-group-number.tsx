@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import { CheckboxGroup } from '@/main';
 
-const values = ['a', 'b', 'c'];
+const values = [1, 2, 3];
 
 export default () => {
   const items = [
-    { value: 'a', label: 'Option 1' },
-    { value: 'b', label: 'Option 2' },
-    { value: 'c', label: 'Option 3' },
-    { value: 'd', label: 'Option 4' },
-    { value: 'e', label: 'Option 5' }
+    { value: 1, label: 'Option 1' },
+    { value: 2, label: 'Option 2' },
+    { value: 3, label: 'Option 3' },
+    { value: 4, label: 'Option 4' },
+    { value: 5, label: 'Option 5' },
   ];
 
-  const [checked, setChecked] = React.useState(['a', 'b']);
+  const [checked, setChecked] = React.useState([1, 2]);
 
   // simulate a server response
   useEffect(() => {
