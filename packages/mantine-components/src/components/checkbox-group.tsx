@@ -16,8 +16,8 @@ interface CheckboxGroupExtendProps extends Omit<CheckboxGroupProps, 'children' |
 }
 
 const defaultTemplate = ({ item }) => {
-  const { label, value, ...rest } = item;
-  return <Checkbox key={value} value={String(value)} label={label} {...rest} />;
+  const { value, ...rest } = item;
+  return <Checkbox key={value} value={String(value)} {...rest} />;
 };
 
 const tryParse = (value: PrimitiveType[]) => {

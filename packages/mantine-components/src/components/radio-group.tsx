@@ -26,20 +26,21 @@ interface RadioGroupExtendProps extends Omit<RadioGroupProps, 'children' | 'valu
 
 const tryParse = (value: PrimitiveType) => parseFloat(String(value)) || value;
 const defaultTemplate = ({ item }) => {
-  const { label, value, ...rest } = item;
-  return <Radio key={value} label={label} value={value} {...rest} />;
+  const { value, ...rest } = item;
+  return <Radio key={value} value={value} {...rest} />;
 };
 
 export function RadioGroup(props: RadioGroupExtendProps) {
   const { className, theme, items, template, value, onChange, listProps, groupProps, ...rest } = props;
   const _value = String(value);
+  const handleChange = (e: string) => {
+    const parsed = tryParse(e);
+    onChange?.(parsed);
+  };
+
   return (
     <MantineProvider theme={theme}>
-      <RadioGroupComponent
-        value={_value}
-        onChange={(val: string) => onChange?.(tryParse(val))}
-        className={className}
-        {...rest}>
+      <RadioGroupComponent value={_value} onChange={handleChange} className={className} {...rest}>
         <Group gap={4} {...groupProps}>
           <RcList items={items} template={template} {...listProps} />
         </Group>
