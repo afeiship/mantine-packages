@@ -1,28 +1,28 @@
 import React, { useEffect } from 'react';
-import { Selection } from '@/main';
+import { RadioGroup } from '@/main';
+
+const items = [
+  { value: 'basketball', label: 'Basketball' },
+  { value: 'football', label: 'Football' },
+  { value: 'volleyball', label: 'Volleyball' },
+  { value: 'tennis', label: 'Tennis' },
+  { value: 'table-tennis', label: 'Table Tennis' }
+];
 
 export default () => {
-  const [checked, setChecked] = React.useState(true);
+  const [value, setValue] = React.useState('basketball');
 
   // simulate a server response
   useEffect(() => {
     setTimeout(() => {
-      console.log('server response received');
-      setChecked(false);
+      setValue('tennis');
     }, 1000);
   }, []);
 
   return (
     <div className="relative border w-4/5 mx-auto mt-10">
-      <Selection value={checked} onChange={setChecked} label="I agree to the terms and conditions" />
-      <hr />
-      <Selection
-        selectionType="radio"
-        value={checked}
-        onChange={setChecked}
-        label="I agree to the terms and conditions"
-      />
-      <pre className="p-5 bg-gray-100">{JSON.stringify({ checked }, null, 2)}</pre>
+      <RadioGroup items={items} value={value} onChange={setValue} label="Select your favorite sport" />
+      <pre className="p-5 bg-gray-100">{JSON.stringify({ value }, null, 2)}</pre>
     </div>
   );
 };
