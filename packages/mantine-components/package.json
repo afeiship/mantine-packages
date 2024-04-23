@@ -1,7 +1,7 @@
 {
   "name": "@jswork/mantine-components",
   "homepage": "https://js.work",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Mantine components for React.",
   "license": "MIT",
   "type": "module",
