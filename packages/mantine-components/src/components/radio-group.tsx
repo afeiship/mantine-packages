@@ -31,7 +31,7 @@ const defaultTemplate = ({ item }) => {
   return <Radio key={value} value={value} {...rest} />;
 };
 
-export function RadioGroup(props: RadioGroupExtendProps) {
+function RadioGroup(props: RadioGroupExtendProps) {
   const { className, theme, items, template, value, onChange, listProps, groupProps, ...rest } = props;
   const _value = String(value);
   const _items = items.map((item) => raw2kv(item));
