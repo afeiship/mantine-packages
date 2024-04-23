@@ -8,7 +8,6 @@ import {
   MantineTheme
 } from '@mantine/core';
 
-// extends Omit<CheckboxProps, 'value' | 'onChange' | 'defaultValue'>
 type SelectionProps =
   | Omit<CheckboxProps, 'value' | 'onChange' | 'defaultValue'>
   | Omit<RadioProps, 'value' | 'onChange' | 'defaultValue'>;
