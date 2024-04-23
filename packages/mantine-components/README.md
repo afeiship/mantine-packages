@@ -1,5 +1,5 @@
-# react-component-mono-lib
-> A react component library template for monorepo.
+# mantine-components
+> Mantine components for React.
 
 [![version][version-image]][version-url]
 [![license][license-image]][license-url]
@@ -18,26 +18,35 @@ npm install -S @jswork/mantine-components
 
   // or use sass
   @import "~@jswork/mantine-components/dist/style.scss";
-
-  // customize your styles:
-  $react-component-mono-lib-options: ()
   ```
 2. import js
   ```js
-  import React from 'react';
-  import ReactComponentMonoLib from '@jswork/mantine-components';
-  import styled from 'styled-components';
+  import React, { useEffect } from 'react';
+  import { Selection } from '@jswork/mantine-components';
 
-  const Container = styled.div`
-    width: 80%;
-    margin: 30px auto 0;
-  `;
+  export default () => {
+    const [checked, setChecked] = React.useState(true);
 
-  export default (props: any) => {
+    // simulate a server response
+    useEffect(() => {
+      setTimeout(() => {
+        console.log('server response received');
+        setChecked(false);
+      }, 1000);
+    }, []);
+
     return (
-      <Container>
-        <ReactComponentMonoLib />
-      </Container>
+      <div className="relative border w-4/5 mx-auto mt-10">
+        <Selection value={checked} onChange={setChecked} label="I agree to the terms and conditions" />
+        <hr />
+        <Selection
+          selectionType="radio"
+          value={checked}
+          onChange={setChecked}
+          label="I agree to the terms and conditions"
+        />
+        <pre className="p-5 bg-gray-100">{JSON.stringify({ checked }, null, 2)}</pre>
+      </div>
     );
   };
 

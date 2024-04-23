@@ -1,5 +1,5 @@
-# react-component-mono-lib
-> A react component library template for monorepo.
+# mantine-components
+> Mantine components for React.
 
 [![version][version-image]][version-url]
 [![license][license-image]][license-url]
@@ -8,19 +8,16 @@
 
 ## installation
 ```shell
-npm install -S @jswork/react-component-mono-lib
+npm install -S @jswork/mantine-components
 ```
 
 ## usage
 1. import css
   ```scss
-  @import "~@jswork/react-component-mono-lib/dist/style.css";
+  @import "~@jswork/mantine-components/dist/style.css";
 
   // or use sass
-  @import "~@jswork/react-component-mono-lib/dist/style.scss";
-
-  // customize your styles:
-  $react-component-mono-lib-options: ()
+  @import "~@jswork/mantine-components/dist/style.scss";
   ```
 2. import js
   ```js
@@ -33,14 +30,14 @@ __GENERATE_DAPP__
 ## license
 Code released under [the MIT license](https://github.com/afeiship/react-component-mono-lib/blob/master/LICENSE.txt).
 
-[version-image]: https://img.shields.io/npm/v/@jswork/react-component-mono-lib
-[version-url]: https://npmjs.org/package/@jswork/react-component-mono-lib
+[version-image]: https://img.shields.io/npm/v/@jswork/mantine-components
+[version-url]: https://npmjs.org/package/@jswork/mantine-components
 
-[license-image]: https://img.shields.io/npm/l/@jswork/react-component-mono-lib
+[license-image]: https://img.shields.io/npm/l/@jswork/mantine-components
 [license-url]: https://github.com/afeiship/react-component-mono-lib/blob/master/LICENSE.txt
 
-[size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/react-component-mono-lib
+[size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/mantine-components
 [size-url]: https://github.com/afeiship/react-component-mono-lib/blob/master/dist/react-component-mono-lib.min.js
 
-[download-image]: https://img.shields.io/npm/dm/@jswork/react-component-mono-lib
-[download-url]: https://www.npmjs.com/package/@jswork/react-component-mono-lib
+[download-image]: https://img.shields.io/npm/dm/@jswork/mantine-components
+[download-url]: https://www.npmjs.com/package/@jswork/mantine-components
