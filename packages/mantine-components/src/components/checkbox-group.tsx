@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import RcList, { ReactListProps, TemplateArgs } from '@jswork/react-list';
 import { Checkbox, CheckboxGroupProps, Group, GroupProps, MantineProvider, MantineTheme } from '@mantine/core';
+import { raw2kv } from '@/components/_helpers';
 
 type PrimitiveType = string | number;
 type Kv = { value: PrimitiveType; label: any } & Record<string, any>;
@@ -28,7 +29,7 @@ const tryParse = (value: PrimitiveType[]) => {
 const CheckboxGroup = (props: CheckboxGroupExtendProps) => {
   const { className, theme, items, template, value, onChange, groupProps, listProps, ...rest } = props;
   const _value = value!.map(String);
-  const _items = items.map((item) => ({ ...item, value: String(item.value) }));
+  const _items = items.map((item) => raw2kv(item, { forceString: true }));
   const [checkBoxValue, setCheckBoxValue] = React.useState(_value);
   const handleChange = (e: string[]) => {
     const parsed = tryParse(e);
