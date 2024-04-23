@@ -9,6 +9,7 @@ import {
   GroupProps
 } from '@mantine/core';
 import RcList, { ReactListProps, TemplateArgs } from '@jswork/react-list';
+import { raw2kv } from './_helpers';
 
 type PrimitiveType = string | number;
 type Kv = { value: PrimitiveType; label: any } & Record<string, any>;
@@ -33,6 +34,7 @@ const defaultTemplate = ({ item }) => {
 export function RadioGroup(props: RadioGroupExtendProps) {
   const { className, theme, items, template, value, onChange, listProps, groupProps, ...rest } = props;
   const _value = String(value);
+  const _items = items.map((item) => raw2kv(item));
   const handleChange = (e: string) => {
     const parsed = tryParse(e);
     onChange?.(parsed);
@@ -42,7 +44,7 @@ export function RadioGroup(props: RadioGroupExtendProps) {
     <MantineProvider theme={theme}>
       <RadioGroupComponent value={_value} onChange={handleChange} className={className} {...rest}>
         <Group gap={4} {...groupProps}>
-          <RcList items={items} template={template} {...listProps} />
+          <RcList items={_items} template={template} {...listProps} />
         </Group>
       </RadioGroupComponent>
     </MantineProvider>
