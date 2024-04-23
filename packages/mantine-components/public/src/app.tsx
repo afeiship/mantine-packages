@@ -21,7 +21,13 @@ export default () => {
 
   return (
     <div className="relative border w-4/5 mx-auto mt-10">
-      <RadioGroup items={items} value={value} onChange={setValue} label="Select your favorite sport" />
+      <RadioGroup
+        items={items}
+        value={value}
+        onChange={setValue}
+        label="Select your favorite sport"
+        listProps={{ as: 'div', className: 'x grid grid-cols-2 gap-4 debug-red w-full' }}
+      />
       <pre className="p-5 bg-gray-100">{JSON.stringify({ value }, null, 2)}</pre>
     </div>
   );
