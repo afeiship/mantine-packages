@@ -8,7 +8,7 @@ interface Raw2KvOptions {
 export const raw2kv = (item: PrimitiveType | Kv, options: Raw2KvOptions = { forceString: false }): Kv => {
   if (typeof item === 'object') {
     const value = options.forceString ? String(item.value) : item.value;
-    return { ...item.props, value, label: item.label };
+    return { ...item, value, label: item.label };
   }
   return raw2kv({ value: item, label: item }, options);
 };
