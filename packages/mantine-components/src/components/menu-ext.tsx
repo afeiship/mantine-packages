@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MantineProvider, MantineTheme, Menu, MenuProps } from '@mantine/core';
-import ReactList from '@jswork/react-list';
+import ReactList, { ReactListProps } from '@jswork/react-list';
 
 const CLASS_NAME = 'MenuExt';
 
@@ -14,6 +14,7 @@ interface MenuItemProps {
 interface MenuExtProps extends MenuProps {
   theme?: MantineTheme;
   items: MenuItemProps[];
+  listProps?: ReactListProps;
   onItemClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -42,13 +43,13 @@ export default class MenuExt extends Component<MenuExtProps> {
   };
 
   render() {
-    const { theme, items, children, onItemClick, ...rest } = this.props;
+    const { theme, items, children, onItemClick, listProps, ...rest } = this.props;
     return (
       <MantineProvider theme={theme}>
         <Menu {...rest}>
           <Menu.Target>{children}</Menu.Target>
           <Menu.Dropdown>
-            <ReactList items={items} template={this.template} options={{ onItemClick }} />
+            <ReactList items={items} template={this.template} options={{ onItemClick }} {...listProps} />
           </Menu.Dropdown>
         </Menu>
       </MantineProvider>
