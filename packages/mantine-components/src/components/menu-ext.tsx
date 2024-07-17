@@ -7,6 +7,7 @@ const CLASS_NAME = 'MenuExt';
 interface MenuItemProps {
   type?: keyof typeof MENU_ITEMS;
   label?: string;
+  value?: number | string | boolean;
 
   [key: string]: any;
 }
@@ -31,13 +32,13 @@ export default class MenuExt extends Component<MenuExtProps> {
 
   template = ({ item, index, options }) => {
     const { onItemClick } = options;
-    const { type, label, key, ...itemRest } = item;
+    const { type, label, value, ...itemRest } = item;
     const _type = type || 'item';
     const MenuItemComponent = MENU_ITEMS[_type];
     const handleCmdClick = (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      const value = key || index;
-      onItemClick?.(value);
+      const _value = value || index;
+      onItemClick?.(_value);
     };
     return <MenuItemComponent key={index} children={label} onClick={handleCmdClick} {...itemRest} />;
   };
