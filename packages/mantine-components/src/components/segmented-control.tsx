@@ -11,7 +11,6 @@ interface SegmentedControlExtendProps extends Omit<SegmentedControlProps, 'data'
 
 const SegmentedControl = (props: SegmentedControlExtendProps) => {
   const { items, ...rest } = props;
-  console.log('props: ', props);
   return <SenseSegmentedControlComponent data={items} {...rest} />;
 };
 
