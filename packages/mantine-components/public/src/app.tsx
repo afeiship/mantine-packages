@@ -1,10 +1,10 @@
 import React from 'react';
-import { Menu } from '@/main';
+import { MenuExt } from '@/main';
 
 export default () => {
   return (
     <div className="relative border w-4/5 mx-auto mt-10">
-      <Menu
+      <MenuExt
         onItemClick={(e) => console.log('Command clicked', e)}
         items={[
           { label: 'Home', href: '/' },
@@ -15,7 +15,7 @@ export default () => {
           { label: 'Register', href: '/register' }
         ]}>
         <button>ShowMenu</button>
-      </Menu>
+      </MenuExt>
     </div>
   );
 };
