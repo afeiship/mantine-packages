@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu as MenuComponent, MenuProps } from '@mantine/core';
+import { MantineProvider, MantineTheme, Menu as MenuComponent, MenuProps } from '@mantine/core';
 import ReactList, { TemplateArgs } from '@jswork/react-list';
 
 interface MenuItemProps {
@@ -10,6 +10,7 @@ interface MenuItemProps {
 }
 
 interface MenuExtendProps extends MenuProps {
+  theme?: MantineTheme;
   items: MenuItemProps[];
   template?: (args: TemplateArgs) => React.ReactNode;
   onItemClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -38,15 +39,17 @@ const template = ({ item, index, options }) => {
 };
 
 function Menu(props: MenuExtendProps) {
-  const { items, children, template, onItemClick, ...rest } = props;
+  const { theme, items, children, template, onItemClick, ...rest } = props;
 
   return (
-    <MenuComponent {...rest}>
-      <MenuTarget>{children}</MenuTarget>
-      <MenuDropdown>
-        <ReactList items={items} template={template} options={{ onItemClick }} />
-      </MenuDropdown>
-    </MenuComponent>
+    <MantineProvider theme={theme}>
+      <MenuComponent {...rest}>
+        <MenuTarget>{children}</MenuTarget>
+        <MenuDropdown>
+          <ReactList items={items} template={template} options={{ onItemClick }} />
+        </MenuDropdown>
+      </MenuComponent>
+    </MantineProvider>
   );
 }
 
