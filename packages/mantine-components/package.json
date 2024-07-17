@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@jswork/react-list": "^1.2.3",
     "@jswork/next": "^1.2.2",
     "@jswork/next-replace-in-file": "^1.0.0",
     "@jswork/next-rollup-banner": "^1.0.11",
@@ -77,7 +78,6 @@
   },
   "dependencies": {
     "@jswork/noop": "^1.0.0",
-    "@jswork/react-list": "^1.2.3",
     "classnames": "^2.5.1"
   },
   "publishConfig": {
