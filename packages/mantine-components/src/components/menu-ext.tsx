@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { MantineProvider, MantineTheme, Menu as MenuComponent, MenuProps } from '@mantine/core';
-import ReactList, { TemplateArgs } from '@jswork/react-list';
+import { MantineProvider, MantineTheme, Menu, MenuProps } from '@mantine/core';
+import ReactList from '@jswork/react-list';
 
 const CLASS_NAME = 'MenuExt';
 
@@ -14,16 +14,13 @@ interface MenuItemProps {
 interface MenuExtProps extends MenuProps {
   theme?: MantineTheme;
   items: MenuItemProps[];
-  template?: (args: TemplateArgs) => React.ReactNode;
   onItemClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const MenuTarget = MenuComponent.Target;
-const MenuDropdown = MenuComponent.Dropdown;
 const MENU_ITEMS = {
-  item: MenuComponent.Item,
-  label: MenuComponent.Label,
-  divider: MenuComponent.Divider
+  item: Menu.Item,
+  label: Menu.Label,
+  divider: Menu.Divider
 };
 
 export default class MenuExt extends Component<MenuExtProps> {
@@ -31,16 +28,29 @@ export default class MenuExt extends Component<MenuExtProps> {
   static version = '__VERSION__';
   static defaultProps = {};
 
+  template = ({ item, index, options }) => {
+    const { onItemClick } = options;
+    const { type, label, key, ...itemRest } = item;
+    const _type = type || 'item';
+    const MenuItemComponent = MENU_ITEMS[_type];
+    const handleCmdClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      const value = key || index;
+      onItemClick?.(value);
+    };
+    return <MenuItemComponent key={index} children={label} onClick={handleCmdClick} {...itemRest} />;
+  };
+
   render() {
-    const { theme, items, children, template, onItemClick, ...rest } = this.props;
+    const { theme, items, children, onItemClick, ...rest } = this.props;
     return (
       <MantineProvider theme={theme}>
-        <MenuComponent {...rest}>
-          <MenuTarget>{children}</MenuTarget>
-          <MenuDropdown>
-            <ReactList items={items} template={template} options={{ onItemClick }} />
-          </MenuDropdown>
-        </MenuComponent>
+        <Menu {...rest}>
+          <Menu.Target>{children}</Menu.Target>
+          <Menu.Dropdown>
+            <ReactList items={items} template={this.template} options={{ onItemClick }} />
+          </Menu.Dropdown>
+        </Menu>
       </MantineProvider>
     );
   }

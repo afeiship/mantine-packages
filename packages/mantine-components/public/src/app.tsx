@@ -14,7 +14,7 @@ export default () => {
           { label: 'Login', href: '/login' },
           { label: 'Register', href: '/register' }
         ]}>
-        <button>ShowMenu</button>
+        <button className="bg-slate-100 hover:bg-slate-200">ShowMenu</button>
       </MenuExt>
     </div>
   );
