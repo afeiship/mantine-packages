@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { MantineProvider, MantineTheme, Menu, MenuProps } from '@mantine/core';
 import ReactList, { ReactListProps } from '@jswork/react-list';
 
-const CLASS_NAME = 'MenuExt';
+const CLASS_NAME = 'menu-ext';
 
 interface MenuItemProps {
   type?: keyof typeof MENU_ITEMS;
@@ -28,7 +28,11 @@ const MENU_ITEMS = {
 export default class MenuExt extends Component<MenuExtProps> {
   static displayName = CLASS_NAME;
   static version = '__VERSION__';
-  static defaultProps = {};
+  static defaultProps = {
+    type: 'item',
+    items: [],
+    listProps: {}
+  };
 
   template = ({ item, index, options }) => {
     const { onItemClick } = options;
