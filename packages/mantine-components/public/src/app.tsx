@@ -1,6 +1,7 @@
 import React from 'react';
 import Menu from './components/menu';
 import Select from './components/select';
+import TextInput from './components/text-input'
 
 export default () => {
   return (
@@ -8,6 +9,8 @@ export default () => {
       <Menu />
       <hr />
       <Select />
+      <hr/>
+      <TextInput />
     </div>
   );
 };
