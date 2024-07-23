@@ -1,7 +1,7 @@
 {
   "name": "@jswork/mantine-components",
   "homepage": "https://js.work",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Mantine components for React.",
   "license": "MIT",
   "type": "module",
@@ -24,11 +24,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
-    "@jswork/react-list": "^1.2.3",
     "@jswork/next": "^1.2.2",
     "@jswork/next-replace-in-file": "^1.0.0",
     "@jswork/next-rollup-banner": "^1.0.11",
     "@jswork/presets-tailwind": "^1.0.15",
+    "@jswork/react-list": "^1.2.3",
     "@jswork/react-markdown-props": "^1.0.1",
     "@mantine/core": "^7.8.0",
     "@mantine/hooks": "^7.8.0",
