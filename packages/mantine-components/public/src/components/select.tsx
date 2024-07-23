@@ -3,7 +3,7 @@ import { SelectExt } from '@/main';
 
 export default () => {
   const [value, setValue] = useState(false);
-  const items = [
+  const data = [
     { value: true, label: 'Yes' },
     { value: false, label: 'No' }
   ];
@@ -19,7 +19,7 @@ export default () => {
   return (
     <div className="relative mx-auto">
       <SelectExt
-        items={items}
+        data={data}
         value={value}
         onChange={(value) => {
           console.log('value: ', value);

@@ -4,7 +4,7 @@ import { MantineProvider, MantineTheme, Select, SelectProps } from '@mantine/cor
 interface SelectExtProps extends Omit<SelectProps, 'data' | 'value' | 'onChange'> {
   theme?: MantineTheme;
   value: string | number | boolean | null;
-  items: any[];
+  data: any[];
   onChange: (value: any, arg: any) => void;
 }
 
@@ -15,7 +15,7 @@ class SelectExt extends Component<SelectExtProps> {
   static version = '__VERSION__';
   static defaultProps = {
     type: 'item',
-    items: []
+    data: []
   };
 
   private getParsedValue = (value) => {
@@ -28,8 +28,8 @@ class SelectExt extends Component<SelectExtProps> {
   };
 
   get data() {
-    const { items } = this.props;
-    return items.map((item) => {
+    const { data } = this.props;
+    return data.map((item) => {
       const { label, value, ...rest } = item;
       const isNumber = typeof value === 'number';
       const isBoolean = typeof value === 'boolean';
@@ -52,7 +52,7 @@ class SelectExt extends Component<SelectExtProps> {
   };
 
   render() {
-    const { theme, items, value, onChange, ...rest } = this.props;
+    const { theme, data, value, onChange, ...rest } = this.props;
     return (
       <MantineProvider theme={theme}>
         <Select data={this.data} value={this.value} onChange={this.onChange} {...rest} />
