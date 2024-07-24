@@ -23,9 +23,14 @@ class DateInputExt extends Component<DateInputExtProps> {
     valueFormat: 'YYYY-MM-DD'
   };
 
+  get valueFormat() {
+    const { valueFormat } = this.props;
+    return DATA_FORMAT_HOOKS[valueFormat as 'string'] || valueFormat;
+  }
+
   get value() {
-    const { value, valueFormat } = this.props;
-    const fmt = DATA_FORMAT_HOOKS[valueFormat as 'string'] || valueFormat;
+    const { value } = this.props;
+    const fmt = this.valueFormat;
 
     if (value == null) return new Date();
     if (typeof value === 'string') return dayjs(value, fmt).toDate();
@@ -33,8 +38,8 @@ class DateInputExt extends Component<DateInputExtProps> {
   }
 
   handleChange = (value: Date) => {
-    const { valueFormat, onChange } = this.props;
-    const _value = value ? dayjs(value).format(valueFormat) : '';
+    const { onChange } = this.props;
+    const _value = value ? dayjs(value).format(this.valueFormat) : '';
     onChange(_value);
   };
 
@@ -42,7 +47,7 @@ class DateInputExt extends Component<DateInputExtProps> {
     const { theme, valueFormat, value, onChange, ...rest } = this.props;
     return (
       <MantineProvider theme={theme}>
-        <DateInput valueFormat={valueFormat} value={this.value} onChange={this.handleChange} {...rest} />
+        <DateInput valueFormat={this.valueFormat} value={this.value} onChange={this.handleChange} {...rest} />
       </MantineProvider>
     );
   }
