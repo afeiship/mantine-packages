@@ -32,7 +32,7 @@ class DateInputExt extends Component<DateInputExtProps> {
     const { value } = this.props;
     const fmt = this.valueFormat;
 
-    if (value == null) return new Date();
+    if (value == null || value === '') return null;
     if (typeof value === 'string') return dayjs(value, fmt).toDate();
     return value;
   }
