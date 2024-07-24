@@ -1,7 +1,8 @@
 import React from 'react';
 import Menu from './components/menu';
 import Select from './components/select';
-import TextInput from './components/text-input'
+import TextInput from './components/text-input';
+import DateInput from './components/date-input';
 
 export default () => {
   return (
@@ -9,8 +10,10 @@ export default () => {
       <Menu />
       <hr />
       <Select />
-      <hr/>
+      <hr />
       <TextInput />
+      <hr />
+      <DateInput />
     </div>
   );
 };
