@@ -25,6 +25,7 @@ export default class MantineFormValidators extends Component<MantineFormValidato
     const root = typeof window === 'undefined' ? globalThis : window;
     this.commands = {};
 
+    // Register nx.$rule
     objectPath.set(root, 'nx.$rule', this.rule);
 
     Object.keys(modules).forEach((key: string) => {
