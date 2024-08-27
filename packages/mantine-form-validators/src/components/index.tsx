@@ -18,7 +18,7 @@ export default class MantineFormValidators extends Component<MantineFormValidato
   static displayName = CLASS_NAME;
   static version = '__VERSION__';
   static defaultProps = {
-    modules: [],
+    modules: []
   };
 
   private readonly commands: Record<string, any>;
@@ -30,7 +30,7 @@ export default class MantineFormValidators extends Component<MantineFormValidato
     this.commands = {};
 
     // Register nx.$rule
-    objectPath.set(root, 'nx.$rule', this.rule);
+    objectPath.set(root, 'nx.$rule', this.ruleState);
 
     Object.keys(modules).forEach((key: string) => {
       const value = modules[key] as Rule;
@@ -39,6 +39,15 @@ export default class MantineFormValidators extends Component<MantineFormValidato
       objectPath.set(this.commands, name, value.methods);
     });
   }
+
+  ruleState = (names: string | string[]) => {
+    const { options } = this.props;
+    const res = this.rule(names);
+    return {
+      ...res,
+      $options: options
+    };
+  };
 
   rule = (names: string | string[]) => {
     if (!names) return this.commands;
