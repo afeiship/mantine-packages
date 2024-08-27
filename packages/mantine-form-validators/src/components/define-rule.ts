@@ -1,7 +1,7 @@
 export interface Rule {
   name?: string;
   methods: {
-    [key: string]: (value: any, values: any) => string | false | null;
+    [key: string]: (value: any, values: any, rulePath: string) => string | false | null;
   };
 }
 
