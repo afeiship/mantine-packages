@@ -1,7 +1,7 @@
 {
   "name": "@jswork/mantine-form-validators",
   "homepage": "https://js.work",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Validate rule manager.",
   "license": "MIT",
   "main": "dist/index.js",
