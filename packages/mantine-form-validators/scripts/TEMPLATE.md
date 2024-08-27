@@ -1,5 +1,5 @@
 # mantine-form-validators
-> Validation library for Mantine UI components.
+> Validate rule manager.
 
 [![version][version-image]][version-url]
 [![license][license-image]][license-url]
@@ -18,6 +18,9 @@ npm install -S @jswork/mantine-form-validators
 
   // or use sass
   @import "~@jswork/mantine-form-validators/dist/style.scss";
+
+  // customize your styles:
+  $mantine-form-validators-options: ()
   ```
 2. import js
   ```js
