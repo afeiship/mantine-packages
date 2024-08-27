@@ -8,13 +8,17 @@ export type MantineFormValidatorsProps = {
    * Vite or webpack alias for modules.
    */
   modules: any[];
+  /**
+   * Options for each rule.
+   */
+  options?: any;
 } & HTMLAttributes<HTMLDivElement>;
 
 export default class MantineFormValidators extends Component<MantineFormValidatorsProps> {
   static displayName = CLASS_NAME;
   static version = '__VERSION__';
   static defaultProps = {
-    modules: []
+    modules: [],
   };
 
   private readonly commands: Record<string, any>;
