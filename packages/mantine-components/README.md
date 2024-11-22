@@ -8,7 +8,7 @@
 
 ## installation
 ```shell
-npm install -S @jswork/mantine-components
+yarn add @jswork/mantine-components
 ```
 
 ## usage
